@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_140723) do
   end
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "count_id", null: false
+    t.integer "count", null: false
     t.integer "start_air", null: false
     t.integer "finish_air", null: false
     t.integer "max_depth", null: false
