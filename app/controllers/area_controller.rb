@@ -1,12 +1,12 @@
 class AreaController < ApplicationController
   
-  def new
-    @area = Area.new
+  def index
+    @area_condition = AreaCondition.new
   end
 
   def create
-    @area = Area.new(area_params)
-    if @area.save
+    @area_condition = AreaCondition.new(area_params)
+    if @area_condition.save
       redirect_to root_path
     else
       render :new
@@ -16,6 +16,6 @@ class AreaController < ApplicationController
   private
 
   def area_params
-    params.require(:area).permit(:date, :area, :entry_id).merge(user_id: current_user.id)
+    params.require(:area_condition).permit(:date, :area, :entry_id, :weather, :wind, :wave, :tide_id, :temperature, :water_temperature).merge(user_id: current_user.id)
   end
 end
