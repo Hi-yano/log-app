@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_064809) do
+ActiveRecord::Schema.define(version: 2020_11_27_015852) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,23 @@ ActiveRecord::Schema.define(version: 2020_11_26_064809) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_areas_on_user_id"
+  end
+
+  create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "weater", null: false
+    t.string "wind", null: false
+    t.integer "temperature", null: false
+    t.integer "water_temperature", null: false
+    t.integer "wave", null: false
+    t.integer "tide_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "area_id", null: false
+    t.bigint "log_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_conditions_on_area_id"
+    t.index ["log_id"], name: "index_conditions_on_log_id"
+    t.index ["user_id"], name: "index_conditions_on_user_id"
   end
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,5 +91,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_064809) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "areas", "users"
+  add_foreign_key "conditions", "areas"
+  add_foreign_key "conditions", "logs"
+  add_foreign_key "conditions", "users"
   add_foreign_key "logs", "users"
 end
