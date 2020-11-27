@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_015852) do
+ActiveRecord::Schema.define(version: 2020_11_27_052825) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_015852) do
   end
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "date", null: false
+    t.date "dive_day", null: false
     t.string "area", null: false
     t.integer "entry_id", null: false
     t.bigint "user_id", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_015852) do
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "weater", null: false
+    t.string "weather", null: false
     t.string "wind", null: false
     t.integer "temperature", null: false
     t.integer "water_temperature", null: false
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2020_11_27_015852) do
     t.index ["area_id"], name: "index_conditions_on_area_id"
     t.index ["log_id"], name: "index_conditions_on_log_id"
     t.index ["user_id"], name: "index_conditions_on_user_id"
+  end
+
+  create_table "equipment", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "thickness", null: false
+    t.integer "type_id", null: false
+    t.integer "weight", null: false
+    t.integer "dive_tank_cap_id", null: false
+    t.integer "dive_tank_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

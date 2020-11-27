@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   root 'logs#index'
   resources :users, only: [:edit, :update, :show]
   resources :logs, only: [:index, :new, :create, :show]
-  resources :area, only: [:index, :create]
-
+  resources :areas, only: [:new, :create]
 end

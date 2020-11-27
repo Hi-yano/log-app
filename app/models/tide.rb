@@ -5,7 +5,7 @@ class Tide < ActiveHash::Base
     { id: 3, name: '強い' },
     { id: 4, name: '弱い' },
     { id: 5, name: 'とても弱い' },
-    { id: 5, name: 'なし' },
+    { id: 6, name: 'なし' },
   ]
 
   include ActiveHash::Associations

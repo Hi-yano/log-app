@@ -1,7 +1,7 @@
 class CreateConditions < ActiveRecord::Migration[6.0]
   def change
     create_table :conditions do |t|
-      t.string     :weater,            null: false
+      t.string     :weather,           null: false
       t.string     :wind,              null: false
       t.integer    :temperature,       null: false
       t.integer    :water_temperature, null: false

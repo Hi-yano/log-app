@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
         has_many :logs
+        has_many :areas
+        has_many :equipments
 end
