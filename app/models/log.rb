@@ -1,6 +1,7 @@
 class Log < ApplicationRecord
   belongs_to :user
   belongs_to :area
+  belongs_to :equipment
   has_one_attached :image
 
   with_options presence: true do
