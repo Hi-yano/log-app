@@ -1,10 +1,10 @@
 class AreaCondition
   include ActiveModel::Model
-  attr_accessor :dive_day, :area, :entry, :weather, :wind, :wave, :tide, :temperature, :water_temperature, :user_id
+  attr_accessor :dive_day, :region, :entry, :weather, :wind, :wave, :tide, :temperature, :water_temperature, :user_id, :area_id
 
   with_options presence: true do
     validates :dive_day
-    validates :area
+    validates :region
     validates :weather
     validates :wind
     validates :wave
@@ -15,8 +15,9 @@ class AreaCondition
     validates :entry
     validates :tide
   end
+
   def save
-    area = Area.create(dive_day: dive_day, area: area, entry_id: entry, user_id: user_id)
+    area = Area.create(dive_day: dive_day, region: region, entry_id: entry)
     Condition.create(weather: weather, wind: wind, wave: wave, temperature: temperature, water_temperature: water_temperature, tide_id: tide, area_id: area.id)
   end
 end

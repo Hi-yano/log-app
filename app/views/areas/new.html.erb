@@ -1,6 +1,4 @@
-<%= link_to 'トップページに戻る', root_path %>
-
-<%= form_with(model: @area_condition, url: areas_path, local: true) do |f| %>
+<%= form_with(model: @area_condition, url: user_areas_path, local: true) do |f| %>
   <h2>area</h2>
   <div>
     <p>date</P>
@@ -8,7 +6,7 @@
   </div>
   <div>
     <p>area</P>
-    <%= f.text_field :area, placeholder:"例）石垣島" %>
+    <%= f.text_field :region, placeholder:"例）石垣島" %>
   </div>
   <div>
     <p>entry</P>
@@ -42,3 +40,4 @@
 
   <%= f.submit "次へ", class:"sell-btn" %>
 <% end %>
+<%= link_to 'トップページに戻る', root_path %>

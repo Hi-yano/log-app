@@ -7,9 +7,7 @@ class CreateConditions < ActiveRecord::Migration[6.0]
       t.integer    :water_temperature, null: false
       t.integer    :wave,              null: false
       t.integer    :tide_id,           null: false
-      t.references :user,              null: false, foreign_key: true
       t.references :area,              null: false, foreign_key: true
-      t.references :log,               null: false, foreign_key: true
       t.timestamps
     end
   end

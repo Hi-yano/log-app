@@ -5,10 +5,10 @@ class AreasController < ApplicationController
   end
 
   def create
-    @area_condition = AreaCondition.new(area_params)
-    if @area_condition.valid? 
-      @area_condition.save
-      redirect_to root_path
+    area_condition = AreaCondition.new(area_params)
+    if area_condition.valid?
+      area_condition.save
+      redirect_to new_equipment_path
     else
       render :new
     end
@@ -17,6 +17,6 @@ class AreasController < ApplicationController
   private
 
   def area_params
-    params.require(:area_condition).permit(:dive_day, :area, :entry_id, :weather, :wind, :wave, :tide_id, :temperature, :water_temperature).merge(user_id: current_user.id)
+    params.require(:area_condition).permit(:dive_day, :entry, :region, :weather, :wind, :wave, :tide, :temperature, :water_temperature, :area_id).merge(user_id: current_user.id)
   end
 end
