@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(version: 2020_11_27_052825) do
     t.integer "weight", null: false
     t.integer "dive_tank_cap_id", null: false
     t.integer "dive_tank_type_id", null: false
+    t.bigint "area_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_equipment_on_area_id"
   end
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,10 +78,10 @@ ActiveRecord::Schema.define(version: 2020_11_27_052825) do
     t.time "entry_time", null: false
     t.time "exit_time", null: false
     t.text "text", null: false
-    t.bigint "user_id", null: false
+    t.bigint "area_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_logs_on_user_id"
+    t.index ["area_id"], name: "index_logs_on_area_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,5 +100,6 @@ ActiveRecord::Schema.define(version: 2020_11_27_052825) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "areas", "users"
   add_foreign_key "conditions", "areas"
-  add_foreign_key "logs", "users"
+  add_foreign_key "equipment", "areas"
+  add_foreign_key "logs", "areas"
 end

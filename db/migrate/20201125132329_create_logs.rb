@@ -10,7 +10,7 @@ class CreateLogs < ActiveRecord::Migration[6.0]
       t.time       :entry_time, null: false
       t.time       :exit_time,  null: false
       t.text       :text,       null: false
-      t.references :user,       null: false, foreign_key: true
+      t.references :area,       null: false, foreign_key: true
       t.timestamps
     end
   end

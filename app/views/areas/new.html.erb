@@ -1,4 +1,4 @@
-<%= form_with(model: @area_condition, url: user_areas_path, local: true) do |f| %>
+<%= form_with(model: @area, url: areas_path, local: true) do |f| %>
   <h2>area</h2>
   <div>
     <p>date</P>
@@ -10,32 +10,7 @@
   </div>
   <div>
     <p>entry</P>
-    <%= f.collection_select(:entry, Entry.all, :id, :name, {}) %>
-  </div>
-  <h2>condition</h2>
-  <div>
-    <p>weather</P>
-    <%= f.text_field :weather, placeholder:"例）晴れ" %>
-  </div>
-  <div>
-    <p>wind</P>
-    <%= f.text_field :wind, placeholder:"例）3" %>
-  </div>
-  <div>
-    <p>wave</P>
-    <%= f.text_field :wave, placeholder:"例）0.5" %>
-  </div>
-  <div>
-    <p>tide</P>
-    <%= f.collection_select(:tide, Tide.all, :id, :name, {}) %>
-  </div>
-  <div>
-    <p>temperature</P>
-    <%= f.text_field :temperature, placeholder:"例）28" %>
-  </div>
-  <div>
-    <p>water_temperature</P>
-    <%= f.text_field :water_temperature, placeholder:"例）23" %>
+    <%= f.collection_select(:entry_id, Entry.all, :id, :name, {}) %>
   </div>
 
   <%= f.submit "次へ", class:"sell-btn" %>

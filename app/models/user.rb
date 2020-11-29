@@ -7,4 +7,5 @@ class User < ApplicationRecord
         has_many :logs
         has_many :areas
         has_many :equipments
+        has_many :conditions
 end

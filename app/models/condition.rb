@@ -1,6 +1,6 @@
 class Condition < ApplicationRecord
 
-    belongs_to :area
+    belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :tide
